@@ -60,6 +60,7 @@ namespace FixGenesisLoopConsoleSpam
                 return;
             }
 
+            //Assume the mesh is bad, and only keep it if it can be proven to be fine.
             bool shouldDestroy = true;
             if (self.chargeSparks.shape.skinnedMeshRenderer && self.chargeSparks.shape.skinnedMeshRenderer.sharedMesh)
             {
