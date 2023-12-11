@@ -66,11 +66,16 @@ namespace FixGenesisLoopConsoleSpam
                 bool readable = self.chargeSparks.shape.skinnedMeshRenderer.sharedMesh.isReadable;
                 if (readable)
                 {
-                    int tris = self.chargeSparks.shape.skinnedMeshRenderer.sharedMesh.triangles.Count();
+                    
+                    int tris = self.chargeSparks.shape.skinnedMeshRenderer.sharedMesh.triangles != null ? self.chargeSparks.shape.skinnedMeshRenderer.sharedMesh.triangles.Count() : 0;
                     if (tris > 0)
                     {
                         Debug.Log("FixGenesisLoopConsoleSpam: Valid mesh confirmed.");
                         shouldDestroy = false;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("FixGenesisLoopConsoleSpam: Invalid mesh with 0 tris detected.");
                     }
                 }
                 else
